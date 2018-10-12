@@ -2,6 +2,8 @@ package tomtom.puzzles2.addstarInString;
 
 public class UsingDivideAndConquer {
 
+	static int count =0;
+	
 	public static void main(String[] args) {
 		String value = "abcd";
 		char [] inputArr = value.toCharArray();
@@ -30,20 +32,20 @@ public class UsingDivideAndConquer {
 		divide(leftArray);
 		divide(rightArray);
 		
-		merge(leftArray,rightArray,inputArr);
+		merge(leftArray,rightArray);
 	}
 
-	private static void merge(char[] leftArray, char[] rightArray, char[] outputArr) {
+	private static void merge(char[] leftArray, char[] rightArray) {
 		
 	int newArrLen = leftArray.length + rightArray.length + 1;
-//    char [] finalArray = new char[newArrLen];
+    char [] finalArray = new char[newArrLen];
 	for(int i =0;i<newArrLen;i++) {
 		if(i<leftArray.length) {
-			outputArr[i] = leftArray[i]; 
+			finalArray[i] = leftArray[i]; 
 		}else if(i==leftArray.length) {
-			outputArr[i]='*';
+			finalArray[i]='*';
 		}else {
-			outputArr[i] = rightArray[i-(rightArray.length+1)];
+			finalArray[i] = rightArray[i-(rightArray.length+1)];
 		}
 		
 	}
